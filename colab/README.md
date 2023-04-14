@@ -1,6 +1,21 @@
 ## Useful snippets for Google Colaboratory
 
+**Table of Contents:**
+- [Install conda easily](#install-conda-easily)
+- [Download kaggle dataset](#download-kaggle-dataset)
+- [Download GGDrive folder if folder is shared but can't be downloaded](#download-ggdrive-folder-if-folder-is-shared-but-cant-be-downloaded)
+- [Mount outside GG Drives](#mount-outside-gg-drives)
+- [Download multiple files with requested headers](#download-multiple-files-with-requested-headers)
+- [Download google drive file using cURL](#download-google-drive-file-using-curl)
+- [Add new python version to Colab](#add-new-python-version-to-colab)
+
+
 ### Install conda easily
+*Deprecated 🤯*
+
+#### Update:
+- 14/04/2023: It seems like Google Colab blocked to install conda. Try with traditional `virtualenv` instead.
+
 ```python
 !pip install -q condacolab
 import condacolab
@@ -12,6 +27,7 @@ condacolab.install()
 condacolab.install_miniconda()
 ```
 Other conda distributions: https://github.com/conda-incubator/condacolab
+
 
 ### Download kaggle dataset
 ```python
@@ -30,7 +46,11 @@ files.upload()
 ![Kaggle download dataset](assets/kaggle_dataset_download.png)
 
 ### Download GGDrive folder if folder is shared but can't be downloaded
-*No working anymore*
+*Deprecated 🤯*
+
+#### Update:
+- 14/04/2023: It doesn't work anymore cause `gshell` package is down.
+
 ```python
 !pip install gshell
 !gshell pwd
@@ -100,16 +120,21 @@ Using this if you have issue with many accesses.
 # first install python 3.6
 !sudo apt-get update -y
 !sudo apt-get install python3.6
+
 # change alternatives
 !sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+
 # select python version
 !sudo update-alternatives --config python3
+
 # check python version
 !python --version
+
 # install pip for new python 
 !sudo apt-get install python3.6-distutils
 !wget https://bootstrap.pypa.io/get-pip.py
 !python get-pip.py
+
 # upgrade pip
 !sudo apt install python3-pip
 !python -m pip install --upgrade pip
